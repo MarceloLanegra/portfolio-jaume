@@ -1,3 +1,28 @@
-<div>Social
-  
-</div>
+---
+import Phone from "./icons/Phone.astro"
+import Twitter from "./icons/Twitter.astro"
+import Mail from "./icons/Mail.astro"
+import Instagram from "./icons/Instagram.astro"
+import Link from './Link.astro'
+
+interface Props {
+  className?: string  
+}
+
+const { className } = Astro.props
+---
+
+<nav class:list={["flex gap-4 justify-center", className]}>
+  <Link href="tel:+346666666">
+    <Phone className="size-6"/>
+  </Link>
+  <Link href="mailto:5K8kT@example.com">
+    <Mail className="size-6"/>
+  </Link>
+  <Link href="https://www.instagram.com">
+    <Instagram className="size-6"/>
+  </Link>
+  <Link href="https://twitter.com">
+    <Twitter className="size-6"/>
+  </Link>
+</nav>

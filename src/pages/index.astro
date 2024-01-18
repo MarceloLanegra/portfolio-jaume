@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Social from "../components/Social.astro";
 import { Image } from "astro:assets";
 import Jaume from "../assets/images/jaume-photo.png";
+import Button from "../components/Button.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout title='Portafolio Jaume'>
@@ -19,7 +21,8 @@ import Jaume from "../assets/images/jaume-photo.png";
       Frontend Developer que le encanta implementar diseños que inspiran y
       atraen a las personas.
     </p>
-    <Social />
-    <button>Descargar currículum</button>
+    <Social className="mb-6"/>
+    <Button>Descargar Currículum</Button>
   </main>
+  <Projects />
 </Layout>
