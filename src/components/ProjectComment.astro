@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import Leonidas from '../assets/images/leonidas.png?url'
+import Jason from '../assets/images/jason.png?url'
+import Marco from '../assets/images/marco.png?url'
+
+interface Props {
+  photo: string,
+  comment: string,
+  commentAuthor: string,
+  commentCompany: string
+}
+
+const { photo, comment, commentAuthor, commentCompany } = Astro.props;
+
+let imgSrc = ''
+  switch (photo.toLowerCase()){
+    case 'leonidas':
+      imgSrc =Leonidas
+      break
+    case 'jason':
+      imgSrc = Jason
+      break
+    case 'marco':
+      imgSrc = Marco
+      break
+  }
+
+---
+
+<blockquote class="my-10 flex flex-col gap-6 items-center p-6 rounded-3xl bg-white/20 border-4 border-white/75">
+  <Image src={imgSrc} alt={''} class={'size-16 md:size-20'} height={64} width={64}/>
+  <p class="font-bold text-pretty">"{comment}"</p>
+  <p class="text-xs leading-5 uppercase text-left text-pretty">
+    <span>{commentAuthor}</span> / <span>{commentCompany}</span>
+  </p>
+</blockquote>

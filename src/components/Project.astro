@@ -1,10 +1,70 @@
 ---
-import ArrowDown from './icons/ArrowDown.astro'
+import ProjectItem from "./ProjectItem.astro";
+import ArrowDown from "./icons/ArrowDown.astro";
+
+const PROJECTS = [
+  {
+    name: "leonidasesteban.com",
+    description:
+      "Accede a más de 120 proyectos que te ayudarán a mejorar tus habilidades como desarrollador Front-End.",
+    url: "https://leonidasesteban.com",
+    code: "https://github.com/4GeeksAcademy/react-tutorial",
+    authorPicture: "Leonidas",
+    comment:
+      "Jaume ha sido de gran ayuda para acelerar ciertos esfuerzos de desarrollo. Lo que nos hubiera llevado 6 meses solo les llevó 1,5 meses.",
+    commentAuthor: "Leonidas Esteban",
+    commentCompany: "Cofundador y CEO leonidasesteban.com",
+  },
+  {
+    name: "Marvol",
+    description:
+      "Es el sitio oficial de Marvol Entertainment. Explore películas, personajes, cómics, programas de televisión, videos y más oficiales de Marvol.",
+    url: "https://leonidasesteban.com",
+    code: "https://github.com/4GeeksAcademy/react-tutorial",
+    authorPicture: "Jason",
+    comment:
+      "Jaume ha superado mis expectativas desde el diseño hasta el desarrollo.",
+    commentAuthor: "Jason Lopez",
+    commentCompany: "Cofundador y CEO Marvol",
+  },
+  {
+    name: "Netnet",
+    description:
+      "Películas y series ilimitadas y mucho más. Disfruta donde quieras. Cancela cuando quieras.",
+    url: "https://leonidasesteban.com",
+    code: "https://github.com/4GeeksAcademy/react-tutorial",
+    authorPicture: "Marco",
+    comment:
+      "Por primera vez en la historia de nuestra empresa, aparecimos en todas las plataformas en las que trabajamos.",
+    commentAuthor: "Marco Cortez",
+    commentCompany: "Netnet",
+  }
+];
 ---
-<section id="Projects">
-  <div class="py-10 flex flex-col gap-6 items-center">
-    <p class="text-2xl text-center leading-9">A lo largo de mi carrera como Frontend, he tenido el privilegio de trabajar en proyectos retadores e increíbles</p>
-    <p class=" font-bold text-2xl text-center leading-9">Aquí hay algunos que me gustaría compartir.</p>
-    <ArrowDown className='size-20'/>
+
+<section id='Projects'>
+  <div class='py-10 flex flex-col gap-6 items-center'>
+    <p class='text-2xl text-center leading-9'>
+      A lo largo de mi carrera como Frontend, he tenido el privilegio de
+      trabajar en proyectos retadores e increíbles
+    </p>
+    <p class='font-bold text-2xl text-center leading-9'>
+      Aquí hay algunos que me gustaría compartir.
+    </p>
+    <ArrowDown className='size-20' />
   </div>
+  {
+    PROJECTS.map((project) => (
+      <ProjectItem
+        name={project.name}
+        description={project.description}
+        urlWeb={project.url}
+        urlCode={project.code}
+        photo={project.authorPicture}
+        comment={project.comment}
+        commentAuthor={project.commentAuthor}
+        commentCompany={project.commentCompany}
+      />
+    ))
+  }
 </section>

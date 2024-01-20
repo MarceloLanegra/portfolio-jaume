@@ -1,3 +1,11 @@
-<button class="py-3 px-6 bg-primary text-white uppercase rounded text-sm font-bold tracking-widest">
+---
+interface Props {
+  secondary?: boolean
+}
+
+const { secondary } = Astro.props
+---
+
+<button class:list={["py-3 px-6 uppercase rounded text-sm font-bold tracking-widest border-2 boder-solid border-primary", secondary ? 'bg-none text-primary' : 'bg-primary text-white']}>
   <slot />
 </button>

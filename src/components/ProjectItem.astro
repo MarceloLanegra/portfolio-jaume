@@ -1,9 +1,40 @@
 ---
 import { Image } from "astro:assets";
+import LeonidadEsteban from "../assets/images/leonidasesteban.png";
+import Button from "./Button.astro";
+import ProjectComment from "./ProjectComment.astro";
 
+interface Props {
+  name: string;
+  description: string;
+  urlWeb: string;
+  urlCode: string;
+  photo: string;
+  comment: string;
+  commentAuthor: string,
+  commentCompany: string
+}
 
+const { name, description, urlWeb, urlCode, photo, comment, commentAuthor, commentCompany } = Astro.props;
 ---
-<article>
-  <!-- <Image src={''} alt={''}/> -->
-  <h3>leonidasesteban.com</h3>
+
+<article class='mt-10 flex flex-col sm:flex-row'>
+  <Image src={LeonidadEsteban} alt={""} />
+  <div class='flex flex-col gap-4 py-10'>
+    <h3
+      class='text-2xl leading-9 font-bold text-white uppercase bg-primary self-start py-1 px-2 shadow-[-4px_4px_0_0_#ffffff;]'
+    >
+      {name}
+    </h3>
+    <p>
+      {description}
+    </p>
+    <div class='flex flex-col gap-4 sm:flex-row'>
+      <a href={urlWeb}></a>
+      <a href={urlCode}></a>
+      <Button secondary>Ver código</Button>
+      <Button>Ver proyecto</Button>
+    </div>
+  </div>
+  <ProjectComment photo={photo} comment={comment} commentAuthor={commentAuthor} commentCompany={commentCompany}/>
 </article>
