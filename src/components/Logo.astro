@@ -1,0 +1,12 @@
+---
+import { Image } from "astro:assets";
+import ImageLogo from "../assets/images/logo.png";
+
+interface Props {
+  className?: string
+}
+
+const { className } = Astro.props
+---
+
+<Image src={ImageLogo} alt='Logo de Jaume' class={className}/>

@@ -1,3 +1,56 @@
-<section class="my-20">
-  <h1>contact</h1>
+---
+import Button from "./Button.astro";
+---
+<section id="contact" class='my-20 scroll-mt-24'>
+  <div class="flex flex-col gap-4 max-w-lg m-auto md:gap-6">
+    <h3
+      class='text-2xl leading-9 font-bold text-white uppercase bg-primary self-start py-1 px-2 shadow-[-4px_4px_0_0_#ffffff;] md:text-4xl md:leading-[3.5rem]'
+    >
+      Hablemos
+    </h3>
+    <p class='text-white'>
+      Si está interesado en trabajar conmigo en su próximo proyecto, no dude en
+      ponerse en contacto conmigo.
+    </p>
+    <form action='' class='flex flex-col gap-4'>
+      <div class='flex flex-col gap-2'>
+        <label for='form-name' class='font-bold ml-4 capitalize after:content-["*"] after:ml-1 after:text-red-500'
+          >Nombre completo</label
+        >
+        <input
+          required
+          name='name'
+          id='form-name'
+          type='text'
+          placeholder='Juan'
+          class='py-3 px-4 rounded-lg'
+        />
+      </div>
+      <div class='flex flex-col gap-2'>
+        <label for='form-mail' class='font-bold ml-4 capitalize after:content-["*"] after:ml-1 after:text-red-500'
+          >Correo electrónico</label
+        >
+        <input
+          required
+          name='mail'
+          id='form-mail'
+          type='email'
+          placeholder='juan@gmail.com'
+          class='py-3 px-4 rounded-lg'
+        />
+      </div>
+      <div class='flex flex-col gap-2'>
+        <label for='form-message' class='font-bold ml-4 capitalize'>Mensaje</label
+        >
+        <textarea
+          required
+          name='message'
+          id='form-message'
+          cols='30'
+          rows='5'
+          class='py-3 px-4 rounded-lg'></textarea>
+      </div>
+      <Button>Enviar mensaje</Button>
+    </form>
+  </div>
 </section>

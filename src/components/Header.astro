@@ -1,12 +1,13 @@
 ---
 import Button from "./Button.astro"
+import Logo from "./Logo.astro"
 ---
-<header class="flex justify-between py-4">
-  <img src="" alt="">
-  <nav class="hidden md:block">
-    <a href="">Hola</a>
-    <a href="">Proyectos</a>
-    <a href="">Hablemos</a>
+<header class="flex justify-between items-center py-4 md:py-6 md:sticky md:top-0 md:backdrop-blur-md">
+  <Logo />
+  <nav class="hidden gap-10 items-center md:flex">
+    <a href="#main" class="uppercase text-white text-sm font-bold tracking-widest hover:text-primary active:text-primary">Hola</a>
+    <a href="#projects" class="uppercase text-white text-sm font-bold tracking-widest hover:text-primary active:text-primary">Proyectos</a>
+    <a href="#contact" class="uppercase text-white text-sm font-bold tracking-widest hover:text-primary active:text-primary">Hablemos</a>
   </nav>
   <Button>Currículum</Button>
 </header>

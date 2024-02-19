@@ -16,7 +16,7 @@ const { photo, comment, commentAuthor, commentCompany } = Astro.props;
 let imgSrc = ''
   switch (photo.toLowerCase()){
     case 'leonidas':
-      imgSrc =Leonidas
+      imgSrc = Leonidas
       break
     case 'jason':
       imgSrc = Jason
@@ -28,10 +28,10 @@ let imgSrc = ''
 
 ---
 
-<blockquote class="my-10 flex flex-col gap-6 items-center p-6 rounded-3xl bg-white/20 border-4 border-white/75">
+<blockquote class="my-10 flex flex-col gap-6 items-center p-6 rounded-3xl bg-white/20 border-4 border-white/75 md:my-20 md:p-20 md:text-center">
   <Image src={imgSrc} alt={''} class={'size-16 md:size-20'} height={64} width={64}/>
-  <p class="font-bold text-pretty">"{comment}"</p>
-  <p class="text-xs leading-5 uppercase text-left text-pretty">
+  <p class="font-bold text-pretty md:text-4xl md:leading-[3.5rem]">"{comment}"</p>
+  <p class="text-xs leading-5 uppercase text-left text-pretty md:text-2xl md:font-bold">
     <span>{commentAuthor}</span> / <span>{commentCompany}</span>
   </p>
 </blockquote>

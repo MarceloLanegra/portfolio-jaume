@@ -1,40 +1,89 @@
 ---
 import { Image } from "astro:assets";
-import LeonidadEsteban from "../assets/images/leonidasesteban.png";
+import LeonidasEsteban from "../assets/images/leonidasesteban.png?url";
+import Marvol from "../assets/images/marvol.png?url";
+import Netnet from "../assets/images/netnet.png?url";
 import Button from "./Button.astro";
 import ProjectComment from "./ProjectComment.astro";
 
 interface Props {
   name: string;
+  image: string;
   description: string;
   urlWeb: string;
   urlCode: string;
   photo: string;
   comment: string;
-  commentAuthor: string,
-  commentCompany: string
+  commentAuthor: string;
+  commentCompany: string;
 }
 
-const { name, description, urlWeb, urlCode, photo, comment, commentAuthor, commentCompany } = Astro.props;
+const {
+  name,
+  image,
+  description,
+  urlWeb,
+  urlCode,
+  photo,
+  comment,
+  commentAuthor,
+  commentCompany,
+} = Astro.props;
+
+let imgSrc = "";
+let width = 0;
+let height = 0;
+switch (image.toLowerCase()) {
+  case "leonidasesteban":
+    imgSrc = LeonidasEsteban;
+    width = 652;
+    height = 392;
+    break;
+  case "marvol":
+    imgSrc = Marvol;
+    width = 638;
+    height = 628;
+    break;
+  case "netnet":
+    imgSrc = Netnet;
+    width = 302;
+    height = 536;
+    break;
+}
 ---
 
-<article class='mt-10 flex flex-col sm:flex-row'>
-  <Image src={LeonidadEsteban} alt={""} />
-  <div class='flex flex-col gap-4 py-10'>
-    <h3
-      class='text-2xl leading-9 font-bold text-white uppercase bg-primary self-start py-1 px-2 shadow-[-4px_4px_0_0_#ffffff;]'
-    >
-      {name}
-    </h3>
-    <p>
-      {description}
-    </p>
-    <div class='flex flex-col gap-4 sm:flex-row'>
-      <a href={urlWeb}></a>
-      <a href={urlCode}></a>
-      <Button secondary>Ver código</Button>
-      <Button>Ver proyecto</Button>
+<article class='flex flex-col group'>
+  <div
+    class='pt-10 flex flex-col items-center md:flex-row md:py-20 md:gap-6 md:even:bg-slate-600 md:group-even:flex-row-reverse'
+  >
+    <div class='text-center md:flex-1'>
+      <Image
+        src={imgSrc}
+        alt={`Imagen de proyecto ${image}`}
+        width={width}
+        height={height}
+        class={"max-h-full max-w-full m-auto"}
+      />
+    </div>
+    <div class='flex flex-col gap-4 py-10 md:items-start md:flex-1'>
+      <h3
+        class='text-2xl leading-9 font-bold text-white uppercase bg-primary self-start py-1 px-2 shadow-[-4px_4px_0_0_#ffffff;] md:text-4xl md:leading-[3.5rem]'
+      >
+        {name}
+      </h3>
+      <p>
+        {description}
+      </p>
+      <div class='flex flex-col gap-4 md:flex-row-reverse'>
+        <Button secondary><a href={urlCode} target="_blank" rel="noopener noreferrer">Ver código</a></Button>
+        <Button><a href={urlWeb} target="_blank" rel="noopener noreferrer">Ver proyecto</a></Button>
+      </div>
     </div>
   </div>
-  <ProjectComment photo={photo} comment={comment} commentAuthor={commentAuthor} commentCompany={commentCompany}/>
+  <ProjectComment
+    photo={photo}
+    comment={comment}
+    commentAuthor={commentAuthor}
+    commentCompany={commentCompany}
+  />
 </article>

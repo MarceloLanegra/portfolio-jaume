@@ -9,21 +9,23 @@ import Contact from "../components/Contact.astro";
 ---
 
 <Layout title='Portafolio Jaume'>
-  <main class='py-4 flex flex-col gap-4'>
+  <main id="main" class='scroll-mt-24 py-4 flex flex-col gap-4 md:py-6 md:flex-row md:gap-16 md:justify-between'>
     <div class="max-w-[500px]">
       <Image
         src={Jaume}
-        alt={"Profile photo of Jaume"}
+        alt={"Jaume"}
       />
     </div>
-    <span class="text-2xl font-bold">!Hola a todos!</span>
-    <h1 class='font-bold text-5xl'>Soy Jaume</h1>
-    <p class="">
-      Frontend Developer que le encanta implementar diseños que inspiran y
-      atraen a las personas.
-    </p>
-    <Social className="mb-6"/>
-    <Button>Descargar Currículum</Button>
+    <div class="flex flex-col gap-4 md:-order-1 md:items-start md:flex-1">
+      <span class="text-2xl font-bold">!Hola a todos!</span>
+      <h1 class='font-bold text-5xl md:text-6xl'>Soy Jaume</h1>
+      <p class="text-pretty max-w-md">
+        Frontend Developer que le encanta implementar diseños que inspiran y
+        atraen a las personas.
+      </p>
+      <Social className="mb-6"/>
+      <Button className="md:hidden">Descargar Currículum</Button>
+    </div>
   </main>
   <Project />
   <Contact />

@@ -5,6 +5,7 @@ import ArrowDown from "./icons/ArrowDown.astro";
 const PROJECTS = [
   {
     name: "leonidasesteban.com",
+    imageName: "leonidasesteban",
     description:
       "Accede a más de 120 proyectos que te ayudarán a mejorar tus habilidades como desarrollador Front-End.",
     url: "https://leonidasesteban.com",
@@ -17,6 +18,7 @@ const PROJECTS = [
   },
   {
     name: "Marvol",
+    imageName: "marvol",
     description:
       "Es el sitio oficial de Marvol Entertainment. Explore películas, personajes, cómics, programas de televisión, videos y más oficiales de Marvol.",
     url: "https://leonidasesteban.com",
@@ -29,6 +31,7 @@ const PROJECTS = [
   },
   {
     name: "Netnet",
+    imageName: "netnet",
     description:
       "Películas y series ilimitadas y mucho más. Disfruta donde quieras. Cancela cuando quieras.",
     url: "https://leonidasesteban.com",
@@ -38,13 +41,15 @@ const PROJECTS = [
       "Por primera vez en la historia de nuestra empresa, aparecimos en todas las plataformas en las que trabajamos.",
     commentAuthor: "Marco Cortez",
     commentCompany: "Netnet",
-  }
+  },
 ];
 ---
 
-<section id='Projects'>
-  <div class='py-10 flex flex-col gap-6 items-center'>
-    <p class='text-2xl text-center leading-9'>
+<section id='projects' class='scroll-mt-24'>
+  <div class='py-10 flex flex-col gap-6 items-center md:py-48'>
+    <p
+      class='text-2xl text-center leading-9 md:text-4xl md:font-light md:leading-[3.5rem] max-w-4xl'
+    >
       A lo largo de mi carrera como Frontend, he tenido el privilegio de
       trabajar en proyectos retadores e increíbles
     </p>
@@ -57,6 +62,7 @@ const PROJECTS = [
     PROJECTS.map((project) => (
       <ProjectItem
         name={project.name}
+        image={project.imageName}
         description={project.description}
         urlWeb={project.url}
         urlCode={project.code}
